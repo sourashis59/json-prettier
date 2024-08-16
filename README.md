@@ -8,7 +8,7 @@
     ```
 - Example:
     - Input json:
-        ```JSON
+    ```JSON
         {"widget": {"debug": "on","window":{"title": "Sample Konfabulator Widget", "name": "main_window", "width": 500, "height": 500
         },
                                                     "image": { 
@@ -25,9 +25,10 @@
                                             "name": "text1",
                                     "hOffset": 250,"vOffset": 100,                      "alignment": "center",
             "onMouseUp": "sun1.opacity = (sun1.opacity / 100) * 90;"}}
-                        }            ```
+                        }           
+    ```
     - Formatted output:
-        ```JSON
+    ```JSON
         {
             "widget": {
                 "debug": "on",
@@ -57,7 +58,7 @@
                 }
             }
         }        
-        ```
+    ```
 
 ## Working:
 - First this program parses the input string and builds the parse tree.
