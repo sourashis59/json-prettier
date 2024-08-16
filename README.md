@@ -3,12 +3,12 @@
 - Build the project using `make` and use the program `json_formatter.out`.
 - Pass the input and output file path as command line arguments, and the input json will be formatted and stored in output file.
 - 
-    ```
+    ```bash
     ./json_formatter.out input.json output.json 
     ```
 - Example:
     - Input json:
-        ```
+        ```JSON
         {"widget": {"debug": "on","window":{"title": "Sample Konfabulator Widget", "name": "main_window", "width": 500, "height": 500
         },
                                                      "image": { 
@@ -28,7 +28,7 @@
                         }    
         ```
     - Formatted output:
-        ```
+        ```JSON
         {
             "widget": {
                 "debug": "on",
