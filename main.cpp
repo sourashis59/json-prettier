@@ -3,6 +3,7 @@
 #include<sstream>
 #include "parse_tree_nodes.h"
 #include "lexer.cpp"
+#include "parser.cpp"
 
 using namespace std;
 
@@ -11,15 +12,15 @@ using namespace std;
 
 
 int main() {
-    // ifstream input_file("input.json");
-    // if (!input_file) {
-    //     std::cerr << "File could not be opened!" << std::endl;
-    //     return 1;
-    // }
+    ifstream input_file("input.json");
+    if (!input_file) {
+        std::cerr << "File could not be opened!" << std::endl;
+        return 1;
+    }
 
-    // stringstream buffer;
-    // buffer << input_file.rdbuf();             // Read the entire file into a string stream
-    // string input = buffer.str(); // Convert the stream to a string
+    stringstream buffer;
+    buffer << input_file.rdbuf();             // Read the entire file into a string stream
+    string input = buffer.str(); // Convert the stream to a string
 
     // queue<Token> tokens;
     
@@ -35,36 +36,39 @@ int main() {
     //     cout << token.val << endl;
     // }
     
-
-
-    List *json = new List(); 
-    json->add_element(new Integer("1241"));
-    json->add_element(new Integer("11111111111"));
-    json->add_element(new String("Hello world"));
-    json->add_element(new Boolean("true"));
-    json->add_element(new Null());
-    
-    List *json1 = new List();
-    json1->add_element(new Integer("12"));
-    json1->add_element(json);
-    json1->add_element(new String("Hello world"));
-    json1->add_element(json);
-    json1->add_element(new Null());
-
-    Map *map = new Map();
-    map->add_element("key1", json);
-    map->add_element("key212", new Integer("92"));
-    map->add_element("key3", json1);
-
-
-    Map *map1 = new Map();
-    map1->add_element("key12", map);
-    map1->add_element("keyyyy", json1);
-
-
     string res;
-    map1->get_formatted_string(res, 0, true);
-    cout << res << endl;
+    Object *parse_tree_root = Parser(input).parse();
+    parse_tree_root->get_formatted_string(res); 
+
+
+    // List *json = new List(); 
+    // json->add_element(new Integer("1241"));
+    // json->add_element(new Integer("11111111111"));
+    // json->add_element(new String("Hello world"));
+    // json->add_element(new Boolean("true"));
+    // json->add_element(new Null());
+    
+    // List *json1 = new List();
+    // json1->add_element(new Integer("12"));
+    // json1->add_element(json);
+    // json1->add_element(new String("Hello world"));
+    // json1->add_element(json);
+    // json1->add_element(new Null());
+
+    // Map *map = new Map();
+    // map->add_element("key1", json);
+    // map->add_element("key212", new Integer("92"));
+    // map->add_element("key3", json1);
+
+
+    // Map *map1 = new Map();
+    // map1->add_element("key12", map);
+    // map1->add_element("keyyyy", json1);
+
+
+    // string res;
+    // map1->get_formatted_string(res, 0, true);
+    // cout << res << endl;
 
 
     ofstream file("output.json");  

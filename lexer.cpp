@@ -1,9 +1,10 @@
+#pragma once
+
 #include<queue>
 #include<unordered_map>
 #include<string>
 #include <stdexcept>
 
-// #pragma once
 
 using namespace std;
 
@@ -79,9 +80,21 @@ class Lexer {
             }
             ++pos;
         }
-        return input.substr(start, pos - start);
+        string res = input.substr(start, pos - start);
+        strip_quotes(res);
+        return res;
     }
+    
+    //* TODO
+    void strip_quotes(string &str) {
+        if (str.size() == 0 
+            || (str.back() != '\'' && str.back() != '\"' && str.front() != '\'' || str.front() != '\"')) 
+            return;
 
+        if (str.back() == '\'' || str.back() == '\"') str.pop_back();
+        if (str.front() == '\'' || str.front() == '\"') str = str.substr(1, str.size() - 1);
+        strip_quotes(str);        
+    }
 public:
     Lexer(const string &input): input(input), pos(0) {}
     
