@@ -3,7 +3,7 @@
 #include<string>
 #include <stdexcept>
 
-#pragma once
+// #pragma once
 
 using namespace std;
 

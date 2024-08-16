@@ -1,4 +1,4 @@
-#pragma once
+// #pragma once
 
 #include<vector>
 #include<string>
@@ -10,7 +10,10 @@ class Object {
 protected:
     void add_tabs(int tab_count, string &str) {
         for (int i = 0; i < tab_count; ++i)
-            str += '\t';
+            // str += '\t';
+
+            // 4 spaces
+            str += "    "; 
     }
 
 public:

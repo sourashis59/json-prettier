@@ -1,8 +1,8 @@
 #include<iostream>
 #include<fstream>
 #include<sstream>
+#include "parse_tree_nodes.h"
 #include "lexer.cpp"
-#include "parse_tree_nodes.cpp"
 
 using namespace std;
 
