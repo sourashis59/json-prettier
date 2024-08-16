@@ -1,5 +1,19 @@
-{
-    "array": [1, 2, 3, "...", 1000],
-    "deepObject": { "key": { "key": { "key": "value" } } }
-  }
-  
+[
+  1,
+  [
+          1241,
+          11111111111,
+          "Hello world",
+          true,
+          null
+  ],
+  "Hello world",
+  [
+          1241,
+          11111111111,
+          "Hello world",
+          true,
+          null
+  ],
+  null
+]
